@@ -1,12 +1,53 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\C971\\C971_MobileApp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Robert\\.nuget\\packages\\communitytoolkit.maui\\10.0.0\\ReadMe.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "C:\\C971\\C971_MobileApp\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "MauiProgram.cs",
+              "ToolTip": "C:\\C971\\C971_MobileApp\\MauiProgram.cs*",
+              "RelativeToolTip": "MauiProgram.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T20:19:34.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ReadMe.txt",
+              "DocumentMoniker": "C:\\Users\\Robert\\.nuget\\packages\\communitytoolkit.maui\\10.0.0\\ReadMe.txt",
+              "RelativeDocumentMoniker": "..\\..\\Users\\Robert\\.nuget\\packages\\communitytoolkit.maui\\10.0.0\\ReadMe.txt",
+              "ToolTip": "C:\\Users\\Robert\\.nuget\\packages\\communitytoolkit.maui\\10.0.0\\ReadMe.txt",
+              "RelativeToolTip": "..\\..\\Users\\Robert\\.nuget\\packages\\communitytoolkit.maui\\10.0.0\\ReadMe.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-12-20T19:36:53.404Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
