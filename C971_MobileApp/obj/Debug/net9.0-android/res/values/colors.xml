@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-	<!-- School Brand Colors -->
-	<color name="primary_midnight">#001731</color>
-	<color name="primary_blue_midnight">#002855</color>
-	<color name="neutral_light_blue">#EEF6F9</color>
-	<color name="neutral_grey">#A7A7A7</color>
-	<color name="accent_medium_blue">#0070F0</color>
-	<color name="accent_sky_blue">#46B1EF</color>
-	<color name="accent_lime_green">#97E152</color>
-</resources>
+<resources><!-- School Brand Colors --><color name="primary_midnight">#001731</color><color name="primary_blue_midnight">#002855</color><color name="neutral_light_blue">#EEF6F9</color><color name="neutral_grey">#A7A7A7</color><color name="accent_medium_blue">#0070F0</color><color name="accent_sky_blue">#46B1EF</color><color name="accent_lime_green">#97E152</color></resources>

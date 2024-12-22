@@ -47,3 +47,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/C971/C971_MobileApp/TermInputPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.TermInputPage.xaml
+build_metadata.AdditionalFiles.TargetPath = TermInputPage.xaml
+build_metadata.AdditionalFiles.RelativePath = TermInputPage.xaml
