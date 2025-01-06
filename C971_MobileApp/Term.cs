@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite;
 
 namespace C971_MobileApp
 {
     internal class Term
     {
-        internal int ID { get; set; }
-        internal string Title { get; set; }
-        internal DateTime StartDate { get; set; }
-        internal DateTime EndDate { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int ID { get; set; }
 
-        internal Term() 
-        {
-            Title = string.Empty;
-            StartDate = DateTime.MinValue;
-            EndDate = DateTime.MaxValue;
-        }
+        public string Title { get; set; } = string.Empty;
+        public DateTime StartDate { get; set; } = DateTime.MinValue;
+        public DateTime EndDate { get; set; } = DateTime.MinValue;
+
+        public Term() { }
     }
 }
