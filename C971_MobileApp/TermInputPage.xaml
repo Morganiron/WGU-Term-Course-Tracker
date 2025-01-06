@@ -45,7 +45,7 @@
                 </Frame>
             </VerticalStackLayout>
 
-            <!-- Courses Section NOT NEEDED for Task C1
+            <!-- Courses Section -->
             <VerticalStackLayout>
                 <Label Text="Courses" 
                        FontSize="Caption"
@@ -59,7 +59,7 @@
                         TextColor="{StaticResource WhiteBrush}"
                         Clicked="OnAddCourseClicked" />
             </VerticalStackLayout>
-            -->
+            
 
             <!-- Action Buttons -->
             <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
