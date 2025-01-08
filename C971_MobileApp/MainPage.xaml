@@ -2,39 +2,100 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="C971_MobileApp.MainPage"
-             Title="">
+             Title="Academic Terms">
 
-    <VerticalStackLayout
-        Padding="10"
-        Spacing="10">
-        
-        <!-- Title Bar -->
+    <VerticalStackLayout Padding="10" Spacing="10">
+
+        <!-- Title -->
         <Label
             Text="Academic Terms"
             FontSize="24"
             FontAttributes="Bold"
             HorizontalOptions="Center"
-            VerticalOptions="Start"/>
-        
+            VerticalOptions="Start" />
+
         <!-- Add Term Button -->
         <Button
             Text="Add a Term +"
             FontSize="18"
             HorizontalOptions="Fill"
             VerticalOptions="Start"
-            Clicked="OnAddTermClicked"/>
-        
-        <!-- Scrollable List of Terms -->
-        <ScrollView
-            BackgroundColor="{StaticResource NeutralLightGray}">
-            <VerticalStackLayout
-                x:Name="TermListContainer"
-                Spacing="10"
-                Padding="0,10">
-                <!-- Individual Term Cards will be dynamically added here -->
-            </VerticalStackLayout>
-        </ScrollView>
-        
-    </VerticalStackLayout>
+            Clicked="OnAddTermClicked" />
 
+        <!-- Terms CollectionView -->
+        <CollectionView x:Name="TermsCollectionView" Margin="0,10,0,0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Padding="10" Spacing="10" BackgroundColor="{StaticResource NeutralGray}" Margin="0,0,0,10">
+
+                        <!-- Term Header -->
+                        <HorizontalStackLayout>
+                            <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" />
+                            <Label Text="{Binding StartEndDate}" FontSize="14" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
+
+                            <!-- Edit Term Button -->
+                            <Button Clicked="OnEditTermClicked">
+                                <Button.ImageSource>
+                                    <FontImageSource Glyph="&#xE3C9;" FontFamily="MaterialIcons" Size="24" />
+                                </Button.ImageSource>
+                            </Button>
+
+                            <!-- Delete Term Button -->
+                            <Button Clicked="OnDeleteTermClicked">
+                                <Button.ImageSource>
+                                    <FontImageSource Glyph="&#xE872;" FontFamily="MaterialIcons" Size="24" />
+                                </Button.ImageSource>
+                            </Button>
+
+                            <!-- Expand/Collapse Button -->
+                            <Button x:Name="ExpandCollapseButton" Clicked="OnToggleExpandClicked">
+                                <Button.ImageSource>
+                                    <FontImageSource Glyph="&#xE72E;" FontFamily="MaterialIcons" Size="24" />
+                                </Button.ImageSource>
+                            </Button>
+                        </HorizontalStackLayout>
+
+                        <!-- Courses List -->
+                        <CollectionView x:Name="CoursesCollectionView" IsVisible="False">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <VerticalStackLayout Padding="10" BackgroundColor="{StaticResource NeutralLightGray}">
+                                        <Label Text="{Binding Title}" FontSize="18" />
+                                        <Label Text="{Binding StartEndDate}" FontSize="14" />
+                                        <HorizontalStackLayout>
+
+                                            <!-- Edit Course Button -->
+                                            <Button Clicked="OnEditCourseClicked">
+                                                <Button.ImageSource>
+                                                    <FontImageSource Glyph="&#xE3C9;" FontFamily="MaterialIcons" Size="24" />
+                                                </Button.ImageSource>
+                                            </Button>
+
+                                            <!-- Course Details Button -->
+                                            <Button Clicked="OnShowCourseDetailsClicked">
+                                                <Button.ImageSource>
+                                                    <FontImageSource Glyph="&#xE5CF;" FontFamily="MaterialIcons" Size="24" />
+                                                </Button.ImageSource>
+                                            </Button>
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <!-- Add Course Button -->
+                        <Button
+                            FontSize="16"
+                            IsVisible="False"
+                            Clicked="OnAddCourseClicked">
+                            <Button.ImageSource>
+                                <FontImageSource Glyph="&#xE145;" FontFamily="MaterialIcons" Size="24" />
+                            </Button.ImageSource>
+                        </Button>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
 </ContentPage>
