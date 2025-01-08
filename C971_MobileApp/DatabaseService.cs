@@ -30,6 +30,29 @@ namespace C971_MobileApp
 
         public static SQLiteAsyncConnection Database => _database;
 
+        // Fetch all terms with their associated courses
+        public static async Task<List<Term>> GetTermsWithCoursesAsync()
+        {
+            var terms = await _database.Table<Term>().ToListAsync();
+            foreach (var term in terms)
+            {
+                term.Courses = await _database.Table<Course>().Where(c => c.TermID == term.ID).ToListAsync();
+                term.IsExpanded = false; // Default to collapsed
+            }
+            return terms;
+        }
+
+        // Delete a term and its associated courses
+        public static async Task DeleteTermWithCoursesAsync(Term term)
+        {
+            await _database.DeleteAsync(term);
+            var courses = await _database.Table<Course>().Where(c => c.TermID == term.ID).ToListAsync();
+            foreach (var course in courses)
+            {
+                await _database.DeleteAsync(course);
+            }
+        }
+
         // Task to create default data in the database
         private static async Task SeedDatabaseAsync()
         {
