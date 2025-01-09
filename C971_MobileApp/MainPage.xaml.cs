@@ -89,6 +89,19 @@ namespace C971_MobileApp
             }
         }
 
+        private async void OnDeleteCourseTapped(Object sender, EventArgs e)
+        {
+            if (sender is Label label && label.BindingContext is Course course)
+            {
+                //var confirm = await DisplayAlert("Confirm Delete", $"Are you sure you want to delete the course '{course.Title}'?", "Yes", "No");
+                //if (confirm)
+                //{
+                //    //await DatabaseService.DeleteCourseAsync(course);
+                //    await LoadTermsAsync(); // Reload terms after deletion
+                //}
+            }
+        }
+
         private async void OnEditCourseTapped(object sender, EventArgs e)
         {
             if (sender is Label label && label.BindingContext is Course course)

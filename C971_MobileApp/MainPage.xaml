@@ -4,35 +4,37 @@
              xmlns:models="clr-namespace:C971_MobileApp.Models"
              x:Class="C971_MobileApp.MainPage"
              Title="Academic Terms">
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="10">
 
-    <VerticalStackLayout Padding="10" Spacing="10">
-
-        <!-- Title -->
-        <Label
+            <!-- Title -->
+            <Label
             Text="Academic Terms"
             FontSize="24"
             FontAttributes="Bold"
             HorizontalOptions="Center"
             VerticalOptions="Start" />
 
-        <!-- Add Term Button -->
-        <Button
+            <!-- Add Term Button -->
+            <Button
             Text="Add a Term +"
             FontSize="18"
             HorizontalOptions="Fill"
             VerticalOptions="Start"
             Clicked="OnAddTermClicked" />
 
-        <!-- Terms CollectionView -->
-        <CollectionView x:Name="TermCollectionView" Margin="0,10,0,0">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <VerticalStackLayout Padding="10" Spacing="10" BackgroundColor="{StaticResource NeutralLightGray}" Margin="0,0,0,10">
 
-                        <!-- Term Header -->
-                        <Grid ColumnDefinitions="*,3*,*" RowDefinitions="Auto,Auto,Auto">
-                            <!-- Row 0 -->
-                            <Label 
+            <!-- Terms CollectionView -->
+            <CollectionView x:Name="TermCollectionView" Margin="0,10,0,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="{StaticResource NeutralLightBlue}" Margin="0,0,0,10" CornerRadius="5" HasShadow="True" BorderColor="{StaticResource Primary}">
+                            <VerticalStackLayout Padding="10" Spacing="10">
+
+                                <!-- Term Header -->
+                                <Grid ColumnDefinitions="*,3*,*" RowDefinitions="Auto,Auto,Auto">
+                                    <!-- Row 0 -->
+                                    <Label 
                                 Grid.Column="1" 
                                 Grid.Row="0" 
                                 Text="{Binding Title}" 
@@ -40,18 +42,19 @@
                                 FontAttributes="Bold" 
                                 VerticalOptions="Center" 
                                 HorizontalOptions="Center" />
-                                <Label 
+                                    <Label 
                                 Grid.Column="2" 
                                 Grid.Row="0" 
                                 Text="{x:Static models:Icons.Edit}" 
-                                Style="{StaticResource MaterialIcon}">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnEditTermTapped" />
-                                </Label.GestureRecognizers>
-                            </Label>
+                                Style="{StaticResource MaterialIcon}"
+                                HorizontalOptions="End">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnEditTermTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
 
-                            <!-- Row 1 -->
-                            <Label 
+                                    <!-- Row 1 -->
+                                    <Label 
                                 Grid.Column="1" 
                                 Grid.Row="1" 
                                 Text="{Binding StartDate, StringFormat='Start: {0:MM/dd/yyyy}'}" 
@@ -59,78 +62,139 @@
                                 VerticalOptions="Center" 
                                 HorizontalOptions="Center" />
 
-                            <!-- Row 2 -->
-                            <Label 
+                                    <!-- Row 2 -->
+                                    <Label 
                                 Grid.Column="0" 
                                 Grid.Row="2" 
                                 Text="{x:Static models:Icons.Delete}" 
-                                Style="{StaticResource MaterialIcon}">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnDeleteTermTapped" />
-                                </Label.GestureRecognizers>
-                            </Label>
-                            <Label 
+                                Style="{StaticResource MaterialIcon}"
+                                HorizontalOptions="Start">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnDeleteTermTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label 
                                 Grid.Column="1" 
                                 Grid.Row="2" 
                                 Text="{Binding EndDate, StringFormat='End: {0:MM/dd/yyyy}'}" 
                                 FontSize="14" 
                                 VerticalOptions="Center" 
                                 HorizontalOptions="Center" />
-                            <Label 
+                                    <Label 
                                 Grid.Column="2" 
                                 Grid.Row="2" 
                                 Text="{Binding ExpandCollapseIcon}" 
-                                Style="{StaticResource MaterialIcon}">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnToggleExpandTapped" />
-                                </Label.GestureRecognizers>
-                            </Label>
-                        </Grid>
+                                Style="{StaticResource MaterialIcon}"
+                                HorizontalOptions="End">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnToggleExpandTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </Grid>
 
-                        <!-- Courses List -->
-                        <CollectionView x:Name="CoursesCollectionView" IsVisible="{Binding IsExpanded}">
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-                                    <VerticalStackLayout Padding="10" BackgroundColor="{StaticResource NeutralLightGray}">
-                                        <Label Text="{Binding Title}" FontSize="18" />
-                                        <Label Text="{Binding StartEndDate}" FontSize="14" />
-                                        <HorizontalStackLayout>
+                                <!-- Courses List -->
+                                <CollectionView 
+                            x:Name="CoursesCollectionView" 
+                            ItemsSource="{Binding Courses}" 
+                            IsVisible="{Binding IsExpanded}">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame Padding="10" CornerRadius="10" Margin="5" BackgroundColor="{StaticResource Gray300}" HasShadow="True" BorderColor="{StaticResource NeutralLightBlue}">
+                                                <Grid ColumnDefinitions="*,3*,*" RowDefinitions="Auto,Auto,Auto">
+                                                    <!-- Row 0: Course Name -->
+                                                    <Label 
+                                                Grid.Column="1" 
+                                                Grid.Row="0" 
+                                                Text="{Binding Title}" 
+                                                FontSize="18" 
+                                                    HorizontalTextAlignment="Center"
+                                                FontAttributes="Bold" 
+                                                VerticalOptions="Center" 
+                                                HorizontalOptions="Center" />
 
-                                            <!-- Edit Course Button -->
-                                            <Label 
+                                                    <!-- Row 1: Start Date and Edit Icon -->
+                                                    <Label 
+                                                Grid.Column="1" 
+                                                Grid.Row="1" 
+                                                Text="{Binding StartDate, StringFormat='Start: {0:MM/dd/yyyy}'}" 
+                                                FontSize="14" 
+                                                VerticalOptions="Center" 
+                                                HorizontalOptions="Center" />
+                                                    <Label 
+                                                Grid.Column="2" 
+                                                Grid.Row="1" 
                                                 Text="{x:Static models:Icons.Edit}" 
                                                 Style="{StaticResource MaterialIcon}">
-                                                <Label.GestureRecognizers>
-                                                    <TapGestureRecognizer Tapped="OnEditCourseTapped" />
-                                                </Label.GestureRecognizers>
-                                            </Label>
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnEditCourseTapped" />
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
 
-                                            <!-- Course Details Button -->
-                                            <Label 
-                                                Text="{x:Static models:Icons.Expand}" 
-                                                Style="{StaticResource MaterialIcon}">
-                                                <Label.GestureRecognizers>
-                                                    <TapGestureRecognizer Tapped="OnShowCourseDetailsTapped" />
-                                                </Label.GestureRecognizers>
-                                            </Label>
-                                        </HorizontalStackLayout>
-                                    </VerticalStackLayout>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
+                                                    <!-- Row 2: Delete Icon, End Date, and Details -->
+                                                    <Label 
+                                                Grid.Column="0" 
+                                                Grid.Row="2" 
+                                                Text="{x:Static models:Icons.Delete}" 
+                                                Style="{StaticResource MaterialIcon}"
+                                                HorizontalOptions="Start">
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnDeleteCourseTapped" />
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
+                                                    <Label 
+                                                Grid.Column="1" 
+                                                Grid.Row="2" 
+                                                Text="{Binding EndDate, StringFormat='End: {0:MM/dd/yyyy}'}" 
+                                                FontSize="14"
+                                                    HorizontalTextAlignment="Center"
+                                                VerticalOptions="Center" 
+                                                HorizontalOptions="Center" />
+                                                    <Label 
+                                                Grid.Column="2" 
+                                                Grid.Row="2" 
+                                                Text="Details" 
+                                                FontSize="14" 
+                                                    HorizontalTextAlignment="Center"
+                                                TextDecorations="Underline" 
+                                                TextColor="{StaticResource PrimaryColor}"
+                                                VerticalOptions="Center" 
+                                                HorizontalOptions="Center">
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnShowCourseDetailsTapped" />
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
+                                                </Grid>
+                                            </Frame>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
 
-                        <!-- Add Course Button -->
-                        <Label 
+
+                                <!-- Add Course Button -->
+                                <HorizontalStackLayout
+                                    IsVisible="{Binding IsExpanded}"
+                                    Spacing="5"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="End">
+                                    <Label
+                                        Text="Add Course"
+                                        FontSize="16" />
+                                   
+                                        <Label 
                             Text="{x:Static models:Icons.Add}" 
                             Style="{StaticResource MaterialIcon}" 
                             IsVisible="{Binding IsExpanded}">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnAddCourseTapped" />
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </VerticalStackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnAddCourseTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
