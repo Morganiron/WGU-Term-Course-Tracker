@@ -16,6 +16,9 @@ namespace C971_MobileApp
         public DateTime StartDate { get; set; } = DateTime.MinValue;
         public DateTime EndDate { get; set; } = DateTime.MinValue;
 
+        public string ExpandCollapseIcon => IsExpanded ? "\ue5c7" : "\ue5c5"; // Collapse (up) or Expand (down)
+
+
         // List to hold associated courses
         [Ignore] // Prevents this property from being stored in the database
         public List<Course> Courses { get; set; } = new List<Course>();

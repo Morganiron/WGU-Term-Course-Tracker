@@ -991,3 +991,5 @@ C:\C971\C971_MobileApp\obj\Debug\net9.0-android\lp\172\jl\files.cache
 C:\C971\C971_MobileApp\obj\Debug\net9.0-android\lp\173\jl\files.cache
 C:\C971\C971_MobileApp\obj\Debug\net9.0-android\lp\174\jl\files.cache
 C:\C971\C971_MobileApp\obj\Debug\net9.0-android\lp\175\jl\files.cache
+C:\C971\C971_MobileApp\obj\Debug\net9.0-android\resizetizer\f\MaterialIcons-Regular.ttf
+C:\C971\C971_MobileApp\obj\Debug\net9.0-android\assets\MaterialIcons-Regular.ttf
