@@ -18,7 +18,7 @@ namespace C971_MobileApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                    fonts.AddFont("material_icon_regular.ttf", "MaterialIcon");
+                    fonts.AddFont("MaterialIcons-Regular.ttf", "MaterialIcon");
                 }); 
 
 #if DEBUG
