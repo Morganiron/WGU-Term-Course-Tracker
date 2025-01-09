@@ -9,7 +9,7 @@
     </Style>
     
     <!-- Material Icons Style -->
-    <Style x:Key="MaterialIconStyle" TargetType="Label">
+    <Style x:Key="MaterialIcon" TargetType="Label">
         <Setter Property="FontFamily" Value="MaterialIcons" />
         <Setter Property="FontSize" Value="24" />
         <Setter Property="VerticalOptions" Value="Center" />
