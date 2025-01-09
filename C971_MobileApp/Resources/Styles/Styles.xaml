@@ -7,6 +7,14 @@
     <Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource AccentMediumBlue}, Dark={StaticResource NeutralLightGray}}" />
     </Style>
+    
+    <!-- Material Icons Style -->
+    <Style x:Key="MaterialIconStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="MaterialIcons" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+    </Style>
 
     <Style TargetType="IndicatorView">
         <Setter Property="IndicatorColor" Value="{AppThemeBinding Light={StaticResource NeutralLightGray}, Dark={StaticResource NeutralGray}}" />
