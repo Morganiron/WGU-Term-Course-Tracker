@@ -16,12 +16,31 @@ public partial class TermInputPage : ContentPage
             TermTitleEntry.Text = _term.Title;
             StartDatePicker.Date = _term.StartDate;
             EndDatePicker.Date = _term.EndDate;
+
+            // Show the courses section for an existing term
+            LoadCourses();
+            CoursesSection.IsVisible = true;
         }
         else
         {
             PageTitleLabel.Text = "New Term";
             StartDatePicker.Date = DateTime.Now;
             EndDatePicker.Date = DateTime.Now.AddMonths(6);
+
+            // Ensure the courses section is hidden when adding a new term
+            CoursesSection.IsVisible = false;
+        }
+    }
+
+    // Load courses for a term when editing
+    private void LoadCourses()
+    {
+        if (_term != null)
+        {
+            CoursesCollectionView.ItemsSource = _term.Courses;
+
+            //Show or hide the "No courses added yet" label
+            CoursesLabel.IsVisible = !_term.Courses.Any();
         }
     }
 
@@ -50,7 +69,10 @@ public partial class TermInputPage : ContentPage
                 StartDate = StartDatePicker.Date,
                 EndDate = EndDatePicker.Date
             };
-            // Add _term to your data source (e.g., database or list)
+
+            // Add _term to the database
+            await DatabaseService.AddTermAsync(_term);
+
             await DisplayAlert("Success", "Term added successfully!", "OK");
         }
         else
@@ -59,7 +81,10 @@ public partial class TermInputPage : ContentPage
             _term.Title = TermTitleEntry.Text;
             _term.StartDate = StartDatePicker.Date;
             _term.EndDate = EndDatePicker.Date;
-            // Update _term in your data source
+
+            // Update _term in the database
+            await DatabaseService.UpdateTermAsync(_term);
+
             await DisplayAlert("Success", "Term updated successfully!", "OK");
         }
 
@@ -78,7 +103,7 @@ public partial class TermInputPage : ContentPage
 
     private async void OnAddCourseClicked(object sender, EventArgs e)
     {
-        // Navigate to AddCoursePage (or similar functionality)
-        //await Navigation.PushAsync(new AddCoursePage(_term));
+        // Navigate to CourseInputPage
+        await Navigation.PushAsync(new CourseInputPage(_term.ID));
     }
 }

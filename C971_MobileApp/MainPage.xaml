@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:C971_MobileApp.Models"
              x:Class="C971_MobileApp.MainPage"
-             Title="Academic Terms">
+             Title="">
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="10">
 

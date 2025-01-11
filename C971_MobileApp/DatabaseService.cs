@@ -30,6 +30,18 @@ namespace C971_MobileApp
 
         public static SQLiteAsyncConnection Database => _database;
 
+        // Add a Term to the database
+        public static async Task AddTermAsync(Term term)
+        {
+            await _database.InsertAsync(term);
+        }
+
+        // Update an existing term
+        public static async Task UpdateTermAsync(Term term)
+        {
+            await _database.UpdateAsync(term);
+        }
+
         // Fetch all terms with their associated courses
         public static async Task<List<Term>> GetTermsWithCoursesAsync()
         {

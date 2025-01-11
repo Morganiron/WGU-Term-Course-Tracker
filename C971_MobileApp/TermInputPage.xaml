@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:C971_MobileApp.Models"
              x:Class="C971_MobileApp.TermInputPage"
              Title="">
 
@@ -46,20 +47,80 @@
             </VerticalStackLayout>
 
             <!-- Courses Section -->
-            <VerticalStackLayout>
+            <VerticalStackLayout x:Name="CoursesSection" IsVisible="False">
                 <Label Text="Courses" 
                        FontSize="Caption"
                        TextColor="{StaticResource NeutralGrayBrush}" />
                 <Label x:Name="CoursesLabel"
+                       IsVisible="True"
                        Text="No courses added yet"
                        FontSize="Body" 
                        TextColor="{StaticResource NeutralGrayBrush}" />
-                <Button Text="Add a course"
-                        BackgroundColor="{StaticResource AccentMediumBlueBrush}"
-                        TextColor="{StaticResource WhiteBrush}"
-                        Clicked="OnAddCourseClicked" />
+
+                <!-- Courses List -->
+                <CollectionView 
+                    x:Name="CoursesCollectionView" 
+                    ItemsSource="{Binding Courses}" 
+                    IsVisible="{Binding IsExpanded}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="10" CornerRadius="10" Margin="5" BackgroundColor="{StaticResource Gray300}" HasShadow="True" BorderColor="{StaticResource NeutralLightBlue}">
+                                <Grid ColumnDefinitions="*,3*,*" RowDefinitions="Auto,Auto,Auto">
+                                    <!-- Row 0: Course Name -->
+                                    <Label 
+                                        Grid.Column="1" 
+                                        Grid.Row="0" 
+                                        Text="{Binding Title}" 
+                                        FontSize="18" 
+                                            HorizontalTextAlignment="Center"
+                                        FontAttributes="Bold" 
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Center" />
+
+                                    <!-- Row 1: Start Date -->
+                                    <Label 
+                                        Grid.Column="1" 
+                                        Grid.Row="1" 
+                                        Text="{Binding StartDate, StringFormat='Start: {0:MM/dd/yyyy}'}" 
+                                        FontSize="14" 
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Center" />
+
+
+                                    <!-- Row 2: End Date -->
+                                    <Label 
+                                        Grid.Column="1" 
+                                        Grid.Row="2" 
+                                        Text="{Binding EndDate, StringFormat='End: {0:MM/dd/yyyy}'}" 
+                                        FontSize="14"
+                                            HorizontalTextAlignment="Center"
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Center" />
+
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <!-- Add Course Button -->
+                <HorizontalStackLayout
+                    Spacing="5"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End">
+                    <Label
+                        Text="Add Course"
+                        FontSize="16" />
+                    <Label 
+                        Text="{x:Static models:Icons.Add}" 
+                        Style="{StaticResource MaterialIcon}" 
+                        IsVisible="{Binding IsExpanded}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAddCourseClicked" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
             </VerticalStackLayout>
-            
 
             <!-- Action Buttons -->
             <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">

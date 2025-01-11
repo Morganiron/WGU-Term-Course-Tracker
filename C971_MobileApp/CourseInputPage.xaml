@@ -1,0 +1,61 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971_MobileApp.CourseInputPage"
+             Title="">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Page Title -->
+            <Label x:Name="PageTitleLabel"
+                   FontSize="Title"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   TextColor="{StaticResource PrimaryBrush}" />
+
+            <!-- Course Name Input -->
+            <VerticalStackLayout>
+                <Label Text="Course Name" 
+                       FontSize="Caption" 
+                       TextColor="{StaticResource NeutralGrayBrush}" />
+                <Frame CornerRadius="8" 
+                       Padding="5" 
+                       BorderColor="{StaticResource PrimaryDarkBrush}" 
+                       BackgroundColor="{StaticResource NeutralLightBlueBrush}">
+                    <Entry x:Name="CourseNameEntry"
+                           Placeholder="Enter a course name" 
+                           FontSize="Body" />
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Date Pickers -->
+            <VerticalStackLayout>
+                <Label Text="Select start and end dates"
+                       FontSize="Caption"
+                       TextColor="{StaticResource NeutralGrayBrush}" />
+                <Frame CornerRadius="8" 
+                       Padding="10" 
+                       BackgroundColor="{StaticResource NeutralLightGrayBrush}">
+                    <HorizontalStackLayout Spacing="10">
+                        <DatePicker x:Name="StartDatePicker"
+                                    FontSize="Body" />
+                        <DatePicker x:Name="EndDatePicker"
+                                    FontSize="Body" />
+                    </HorizontalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Action Buttons -->
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                <Button Text="Save"
+                        BackgroundColor="{StaticResource AccentLimeGreenBrush}"
+                        TextColor="{StaticResource WhiteBrush}"
+                        Clicked="OnSaveCourseClicked" />
+                <Button Text="Cancel"
+                        BackgroundColor="{StaticResource PrimaryDarkBrush}"
+                        TextColor="{StaticResource WhiteBrush}"
+                        Clicked="OnCancelClicked" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

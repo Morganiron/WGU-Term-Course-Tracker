@@ -484,3 +484,6 @@ C:\C971\C971_MobileApp\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\qualifiers
 C:\C971\C971_MobileApp\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 C:\C971\C971_MobileApp\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\MaterialIcons-Regular.ttf
 C:\C971\C971_MobileApp\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\f\MaterialIcons-Regular.ttf
+C:\C971\C971_MobileApp\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Controls.HotReload.Forms.dll
+C:\C971\C971_MobileApp\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
+C:\C971\C971_MobileApp\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Microsoft.VisualStudio.DesignTools.TapContract.dll
