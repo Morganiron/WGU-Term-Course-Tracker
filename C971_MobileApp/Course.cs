@@ -18,6 +18,10 @@ namespace C971_MobileApp
         public DateTime StartDate { get; set; } = DateTime.MinValue;
         public DateTime EndDate { get; set; } = DateTime.MinValue;
 
+        public String InstructorName { get; set; } = String.Empty;
+        public String InstructorPhone { get; set; } = String.Empty;
+        public String InstructorEmail { get; set; } = String.Empty;
+
         public Course()
         {
 
