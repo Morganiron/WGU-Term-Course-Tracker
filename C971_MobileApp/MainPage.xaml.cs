@@ -106,8 +106,8 @@ namespace C971_MobileApp
         {
             if (sender is Label label && label.BindingContext is Course course)
             {
-                //await Navigation.PushAsync(new CourseInputPage(course.TermID, course));
-                //await LoadTermsAsync(); // Reload terms after editing
+                await Navigation.PushAsync(new CourseInputPage(course.TermID, course));
+                await LoadTermsAsync(); // Reload terms after editing
             }
         }
 

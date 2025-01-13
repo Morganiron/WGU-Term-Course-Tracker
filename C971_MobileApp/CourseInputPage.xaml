@@ -11,17 +11,17 @@
                    FontSize="Title"
                    HorizontalOptions="Center"
                    HorizontalTextAlignment="Center"
-                   TextColor="{StaticResource PrimaryBrush}" />
+                   TextColor="{StaticResource Primary}" />
 
             <!-- Course Name Input -->
             <VerticalStackLayout>
                 <Label Text="Course Name" 
                        FontSize="Caption" 
-                       TextColor="{StaticResource NeutralGrayBrush}" />
+                       TextColor="{StaticResource PrimaryDarkText}" />
                 <Frame CornerRadius="8" 
                        Padding="5" 
-                       BorderColor="{StaticResource PrimaryDarkBrush}" 
-                       BackgroundColor="{StaticResource NeutralLightBlueBrush}">
+                       BorderColor="{StaticResource PrimaryDark}" 
+                       BackgroundColor="{StaticResource NeutralLightBlue}">
                     <Entry x:Name="CourseNameEntry"
                            Placeholder="Enter a course name" 
                            FontSize="Body" />
@@ -32,10 +32,10 @@
             <VerticalStackLayout>
                 <Label Text="Select start and end dates"
                        FontSize="Caption"
-                       TextColor="{StaticResource NeutralGrayBrush}" />
+                       TextColor="{StaticResource PrimaryDarkText}" />
                 <Frame CornerRadius="8" 
                        Padding="10" 
-                       BackgroundColor="{StaticResource NeutralLightGrayBrush}">
+                       BackgroundColor="{StaticResource NeutralLightGray}">
                     <HorizontalStackLayout Spacing="10">
                         <DatePicker x:Name="StartDatePicker"
                                     FontSize="Body" />
@@ -44,16 +44,51 @@
                     </HorizontalStackLayout>
                 </Frame>
             </VerticalStackLayout>
+            
+            <!-- Status Picker -->
+            <VerticalStackLayout>
+                <Label Text="Course Status"
+                       FontSize="Caption"
+                       TextColor="{StaticResource PrimaryDarkText}" />
+                <Picker x:Name="StatusPicker"
+                        FontSize="Body"
+                        Title="Select status">
+                </Picker>
+            </VerticalStackLayout>
+            
+            <!-- Instructor Details -->
+            <VerticalStackLayout>
+                <Label Text="Instructor Details"
+                       FontSize="Caption"
+                       TextColor="{StaticResource PrimaryDarkText}" />
+                <Frame CornerRadius="8" Padding="5" Margin="0,0,0,10">
+                    <Entry x:Name="InstructorNameEntry"
+                           Placeholder="Instructor Name"
+                           FontSize="Body" />
+                </Frame>
+                <Frame CornerRadius="8" Padding="5" Margin="0,0,0,10">
+                    <Entry x:Name="InstructorPhoneEntry"
+                           Placeholder="Phone Number"
+                           FontSize="Body"
+                           Keyboard="Telephone" />
+                </Frame>
+                <Frame CornerRadius="8" Padding="5" Margin="0,0,0,10">
+                    <Entry x:Name="InstructorEmailEntry"
+                           Placeholder="Email Address"
+                           FontSize="Body"
+                           Keyboard="Email" />
+                </Frame>
+            </VerticalStackLayout>
 
             <!-- Action Buttons -->
             <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
                 <Button Text="Save"
-                        BackgroundColor="{StaticResource AccentLimeGreenBrush}"
-                        TextColor="{StaticResource WhiteBrush}"
+                        BackgroundColor="{StaticResource PrimaryDark}"
+                        TextColor="{StaticResource White}"
                         Clicked="OnSaveCourseClicked" />
                 <Button Text="Cancel"
-                        BackgroundColor="{StaticResource PrimaryDarkBrush}"
-                        TextColor="{StaticResource WhiteBrush}"
+                        BackgroundColor="{StaticResource PrimaryDark}"
+                        TextColor="{StaticResource White}"
                         Clicked="OnCancelClicked" />
             </HorizontalStackLayout>
         </VerticalStackLayout>
