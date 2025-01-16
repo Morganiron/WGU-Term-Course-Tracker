@@ -22,6 +22,10 @@ namespace C971_MobileApp
         public String InstructorPhone { get; set; } = String.Empty;
         public String InstructorEmail { get; set; } = String.Empty;
 
+        // Start and End date notifications
+        public bool StartDateNotificationEnabled { get; set; } = false;
+        public bool EndDateNotificationEnabled { get; set; } = false;
+
         public Course()
         {
 
