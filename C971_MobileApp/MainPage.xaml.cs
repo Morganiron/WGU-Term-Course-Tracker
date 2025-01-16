@@ -115,7 +115,7 @@ namespace C971_MobileApp
         {
             if (sender is Label label && label.BindingContext is Course course)
             {
-                //await Navigation.PushAsync(new CourseDetailsPage(course));
+                await Navigation.PushAsync(new CourseDetailsPage(course));
             }
         }
     }
