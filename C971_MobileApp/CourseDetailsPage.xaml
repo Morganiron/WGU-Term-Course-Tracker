@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:C971_MobileApp.Models"
+             x:Class="C971_MobileApp.CourseDetailPage"
+             Title="CourseDetailPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- Course Information -->
+            <Label Text="{Binding Title}" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+            <Label Text="{Binding StartDate, StringFormat='Start: {0:MM/dd/yyyy}'}" FontSize="14" />
+            <Label Text="{Binding EndDate, StringFormat='End: {0:MM/dd/yyyy}'}" FontSize="14" />
+            <Label Text="{Binding InstructorName}" FontSize="16" FontAttributes="Bold" />
+            <Label Text="{Binding InstructorPhone}" FontSize="14" />
+            <Label Text="{Binding InstructorEmail}" FontSize="14" />
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>
