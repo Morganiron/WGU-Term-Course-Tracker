@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
+using Plugin.LocalNotification;
 
 namespace C971_MobileApp
 {
@@ -19,6 +20,13 @@ namespace C971_MobileApp
         {
             base.OnAppearing();
             await LoadTermsAsync();
+
+            // Check notifications permissions
+            bool isPermGranted = await LocalNotificationCenter.Current.AreNotificationsEnabled();
+            if (!isPermGranted)
+            {
+                await LocalNotificationCenter.Current.RequestNotificationPermission();
+            }
         }
 
         private async Task LoadTermsAsync()
