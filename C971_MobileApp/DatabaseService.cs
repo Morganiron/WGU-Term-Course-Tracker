@@ -17,8 +17,6 @@ namespace C971_MobileApp
 
             var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "C971.db");
 
-            Console.WriteLine($"Database Path: {databasePath}");
-
             _database = new SQLiteAsyncConnection(databasePath);
 
             await _database.CreateTableAsync<Term>();
