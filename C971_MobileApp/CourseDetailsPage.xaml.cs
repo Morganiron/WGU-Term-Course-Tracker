@@ -7,99 +7,86 @@ namespace C971_MobileApp
     {
         private readonly Course _course;
 
-        public bool StartDateNotificationEnabled
-        {
-            get => _course.StartDateNotificationEnabled;
-            set
-            {
-                if (_course.StartDateNotificationEnabled != value)
-                {
-                    _course.StartDateNotificationEnabled = value;
-                    HandleStartDateNotification(value);
-                    OnPropertyChanged(nameof(StartDateNotificationEnabled));
-                }
-            }
-        }
-
-        public bool EndDateNotificationEnabled
-        {
-            get => _course.EndDateNotificationEnabled;
-            set
-            {
-                if (_course.EndDateNotificationEnabled != value)
-                {
-                    _course.EndDateNotificationEnabled = value;
-                    HandleEndDateNotification(value);
-                    OnPropertyChanged(nameof(EndDateNotificationEnabled));
-                }
-            }
-        }
-
         internal CourseDetailsPage(Course course)
         {
             InitializeComponent();
             _course = course;
-            BindingContext = this;
+            BindingContext = _course;
 
             // Initialize the notification toggle values
-            StartDateNotificationEnabled = _course.StartDateNotificationEnabled;
-            EndDateNotificationEnabled = _course.EndDateNotificationEnabled;
+            StartDateNotificationToggle.IsToggled = _course.StartDateNotificationEnabled;
+            EndDateNotificationToggle.IsToggled = _course.EndDateNotificationEnabled;
         }
 
         // Notification handler for course start date
-        private async void HandleStartDateNotification(bool isEnabled)
+        private async void OnStartDateNotificationToggled(object sender, ToggledEventArgs e)
         {
+            bool isEnabled = e.Value;
             _course.StartDateNotificationEnabled = isEnabled;
 
             if (isEnabled)
             {
+                // Adjust the StartDate to be set with a time of 8:00 AM
+                DateTime notifyTime = _course.StartDate.Date.AddHours(8);
+                
+
+                // Schedule a notification for the course start date
                 var notification = new NotificationRequest
                 {
-                    NotificationId = _course.ID * 10 + 1, // Unique ID
+                    NotificationId = _course.ID * 10 + 1,
                     Title = "Course Start Reminder",
                     Description = $"Your course \"{_course.Title}\" starts on {_course.StartDate:MM/dd/yyyy}.",
                     Schedule = new NotificationRequestSchedule
                     {
-                        NotifyTime = _course.StartDate
+                        NotifyTime = notifyTime
                     }
                 };
+                Console.WriteLine($"Scheduled startDate notification date and time{notifyTime}");
                 await LocalNotificationCenter.Current.Show(notification);
             }
             else
             {
+                // Cancel the notification
                 LocalNotificationCenter.Current.Cancel(_course.ID * 10 + 1);
             }
 
-            // Update the database
+            // Save the updated state to the database
             await DatabaseService.Database.UpdateAsync(_course);
         }
 
 
         // Notification handler for course end date
-        private async void HandleEndDateNotification(bool isEnabled)
+        private async void OnEndDateNotificationToggled(object sender, ToggledEventArgs e)
         {
+            bool isEnabled = e.Value;
             _course.EndDateNotificationEnabled = isEnabled;
 
             if (isEnabled)
             {
+                // Adjust the EndDate to be set with a time of 8:00 AM
+                DateTime notifyTime = _course.EndDate.Date.AddHours(8);
+
+                // Schedule a notification for the course end date
                 var notification = new NotificationRequest
                 {
-                    NotificationId = _course.ID * 10 + 2, // Unique ID
+                    NotificationId = _course.ID * 10 + 2,
                     Title = "Course End Reminder",
                     Description = $"Your course \"{_course.Title}\" ends on {_course.EndDate:MM/dd/yyyy}.",
                     Schedule = new NotificationRequestSchedule
                     {
-                        NotifyTime = _course.EndDate
+                        NotifyTime = notifyTime
                     }
                 };
+                Console.WriteLine($"Scheduled endDate notification date and time{_course.EndDate}");
                 await LocalNotificationCenter.Current.Show(notification);
             }
             else
             {
+                // Cancel the notification
                 LocalNotificationCenter.Current.Cancel(_course.ID * 10 + 2);
             }
 
-            // Update the database
+            // Save the updated state to the database
             await DatabaseService.Database.UpdateAsync(_course);
         }
 
