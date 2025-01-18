@@ -3,14 +3,17 @@
   <PropertyGroup>
     <IsFirstTimeProjectOpen>False</IsFirstTimeProjectOpen>
     <ActiveDebugFramework>net9.0-android</ActiveDebugFramework>
-    <ActiveDebugProfile>Pixel 6 - API 35 (Android 15.0 - API 35)</ActiveDebugProfile>
+    <ActiveDebugProfile>Pixel 6 - API 31 (Android 12.0 - API 31)</ActiveDebugProfile>
     <SelectedPlatformGroup>Emulator</SelectedPlatformGroup>
-    <DefaultDevice>pixel_6_-_api_35</DefaultDevice>
+    <DefaultDevice>pixel_6_-_api_31</DefaultDevice>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-android|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <ItemGroup>
+    <MauiXaml Update="CourseDetailsPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="CourseInputPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
