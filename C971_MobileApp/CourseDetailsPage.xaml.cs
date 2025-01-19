@@ -124,5 +124,10 @@ namespace C971_MobileApp
                 await Navigation.PopAsync(); // Go back to the previous page
             }
         }
+
+        private void OnAddNoteTapped(object sender, EventArgs e)
+        {
+
+        }
     }
 }

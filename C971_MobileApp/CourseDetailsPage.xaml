@@ -5,7 +5,7 @@
              x:Class="C971_MobileApp.CourseDetailsPage"
              Title="Course Details">
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
+        <VerticalStackLayout Padding="20" Spacing="15" BackgroundColor="{StaticResource NeutralLightBlue}">
 
             <!-- Header with Icons -->
             <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto">
@@ -96,7 +96,108 @@
                 </HorizontalStackLayout>
             </VerticalStackLayout>
 
+            <!-- Horizontal Line separator -->
+            <BoxView HeightRequest="1" Color="{StaticResource NeutralGray}" />
 
+            <!-- Notes Section -->
+            <VerticalStackLayout Spacing="10" Padding="10">
+                <Label Text="Notes" 
+                           FontSize="18" 
+                           FontAttributes="Bold" 
+                           HorizontalTextAlignment="Center" />
+
+                <!-- Notes List -->
+                <CollectionView x:Name="NotesCollectionView"
+                                    ItemsSource="{Binding Notes}"
+                                    SelectionMode="None"
+                                    BackgroundColor="White">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Stroke="{StaticResource Primary}"
+                                        StrokeThickness="1"
+                                        BackgroundColor="{StaticResource NeutralLightGray}"
+                                        Padding="10"
+                                        Margin="5">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <Grid RowDefinitions="Auto,Auto,Auto"
+                                          ColumnDefinitions="*,Auto,Auto,Auto">
+
+                                    <!-- Note Title -->
+                                    <Label Text="{Binding Title}" 
+                                               FontSize="16" 
+                                               FontAttributes="Bold" 
+                                               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+                                               LineBreakMode="TailTruncation" />
+
+                                    <!-- Note Content (Truncated) -->
+                                    <Label Text="{Binding Content}" 
+                                               FontSize="14" 
+                                               TextColor="DarkGray" 
+                                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"
+                                               LineBreakMode="TailTruncation" />
+
+                                    <!-- Note Date -->
+                                    <Label Text="{Binding CreatedDate, StringFormat='{0:MM/dd/yyyy}'}" 
+                                               FontSize="12" 
+                                               TextColor="DarkGray" 
+                                               Grid.Row="2" Grid.Column="0"
+                                               VerticalOptions="Center" />
+
+                                    <!-- Edit Icon -->
+                                    <Label Text="{x:Static models:Icons.Edit}" 
+                                               Style="{StaticResource MaterialIcon}" 
+                                               Grid.Row="2" Grid.Column="1"
+                                               HorizontalOptions="End">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding EditCommand}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+                                    <!-- Delete Icon -->
+                                    <Label Text="{x:Static models:Icons.Delete}" 
+                                               Style="{StaticResource MaterialIcon}" 
+                                               Grid.Row="2" Grid.Column="2"
+                                               HorizontalOptions="End">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding DeleteCommand}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+                                    <!-- Share Icon -->
+                                    <Label Text="{x:Static models:Icons.Share}" 
+                                               Style="{StaticResource MaterialIcon}" 
+                                               Grid.Row="2" Grid.Column="3"
+                                               HorizontalOptions="End">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding ShareCommand}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <!-- Add Course Button -->
+                <HorizontalStackLayout
+                        Spacing="5"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End">
+                    <Label
+                            Text="Add Note"
+                            FontSize="16" />
+                    <Label 
+                            Text="{x:Static models:Icons.Add}" 
+                            Style="{StaticResource MaterialIcon}" 
+                            IsVisible="{Binding IsExpanded}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAddNoteTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
