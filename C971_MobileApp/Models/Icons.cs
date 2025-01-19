@@ -16,5 +16,6 @@ namespace C971_MobileApp.Models
         public const string Collapse = "\ue5c7"; // Arrow Up
         public const string Add = "\ue147"; // Plus Circle
         public const string Save = "\ue161"; // Save
+        public const string Share = "\ue80d"; // Share
     }
 }
