@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using C971_MobileApp.Models;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace C971_MobileApp
 
             await _database.CreateTableAsync<Term>();
             await _database.CreateTableAsync<Course>();
+            await _database.CreateTableAsync<Note>();
 
            // Seed default data
            await SeedDatabaseAsync();
@@ -64,6 +66,32 @@ namespace C971_MobileApp
             {
                 await _database.DeleteAsync(course);
             }
+        }
+
+        // Get notes by course ID
+        public static async Task<List<Note>> GetNotesByCourseIdAsync(int courseId)
+        {
+            return await _database.Table<Note>()
+                .Where(note => note.CourseId == courseId)
+                .ToListAsync();
+        }
+
+        // Add note to the database
+        public static async Task AddNoteAsync(Note note)
+        {
+            await _database.InsertAsync(note);
+        }
+
+        // Update note in database
+        public static async Task UpdateNoteAsync(Note note)
+        {
+            await _database.UpdateAsync(note);
+        }
+
+        // Delete note from database
+        public static async Task DeleteNoteAsync(Note note)
+        {
+            await _database.DeleteAsync(note);
         }
 
         // Task to create default data in the database

@@ -5,5 +5,6 @@
         public string Title { get; set; } = string.Empty; // Title of the note
         public string Content { get; set; } = string.Empty; // Main content of the note
         public DateTime CreatedDate { get; set; } // Timestamp when the note was created
+        public DateTime LastUpdated {  get; set; } // Timestamp when the note was updated
     }
 }
