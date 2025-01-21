@@ -1,3 +1,5 @@
+using System.Collections.ObjectModel;
+using C971_MobileApp.Models;
 using Microsoft.Maui.Controls;
 using Plugin.LocalNotification;
 
@@ -6,6 +8,8 @@ namespace C971_MobileApp
     public partial class CourseDetailsPage : ContentPage
     {
         private readonly Course _course;
+
+        private ObservableCollection<Note> _notes;
 
         internal CourseDetailsPage(Course course)
         {
@@ -16,6 +20,37 @@ namespace C971_MobileApp
             // Initialize the notification toggle values
             StartDateNotificationToggle.IsToggled = _course.StartDateNotificationEnabled;
             EndDateNotificationToggle.IsToggled = _course.EndDateNotificationEnabled;
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await LoadNotesAsync();
+        }
+
+        private async Task LoadNotesAsync()
+        {
+            try
+            {
+                var notes = await DatabaseService.GetNotesByCourseIdAsync(_course.ID);
+                Notes = new ObservableCollection<Note>(notes);
+                NotesCollectionView.ItemsSource = Notes;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading notes: {ex.Message}");
+                await DisplayAlert("Error", "Failed to load notes.", "OK");
+            }
+        }
+
+        internal ObservableCollection<Note> Notes
+        {
+            get => _notes;
+            set
+            {
+                _notes = value;
+                OnPropertyChanged(nameof(Notes));
+            }
         }
 
         // Notification handler for course start date
@@ -125,9 +160,74 @@ namespace C971_MobileApp
             }
         }
 
-        private void OnAddNoteTapped(object sender, EventArgs e)
+        private async void OnAddNoteTapped(object sender, EventArgs e)
         {
+            string title = await DisplayPromptAsync("New Note", "Enter note title:");
+            if (string.IsNullOrWhiteSpace(title)) return;
 
+            string content = await DisplayPromptAsync("New Note", "Enter note content:");
+            if (string.IsNullOrWhiteSpace(content)) return;
+
+            var newNote = Note.Create(_course.ID, title, content);
+
+            try
+            {
+                await DatabaseService.AddNoteAsync(newNote);
+                Notes.Add(newNote); // Update the collection
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding note: {ex.Message}");
+                await DisplayAlert("Error", "Failed to add note.", "OK");
+            }
         }
+
+        private async void OnDeleteNoteTapped(object sender, EventArgs e)
+        {
+            if (sender is Label label && label.BindingContext is Note note)
+            {
+                bool confirm = await DisplayAlert("Confirm Delete", $"Are you sure you want to delete the note \"{note.Content.Title}\"?", "Yes", "No");
+                if (confirm)
+                {
+                    // Delete the note from the database
+                    await DatabaseService.DeleteNoteAsync(note);
+
+                    // Update the notes displayed on the page
+                    var notes = await DatabaseService.GetNotesByCourseIdAsync(note.CourseId);
+                    NotesCollectionView.ItemsSource = notes;
+
+                    await DisplayAlert("Success", "Note deleted successfully!", "OK");
+                }
+            }
+        }
+
+
+        private async void OnEditNoteTapped(object sender, EventArgs e)
+        {
+            if (sender is Label label && label.BindingContext is Note note)
+            {
+                // Navigate to a NoteEditorPage to edit the note
+                //await Navigation.PushAsync(new NoteEditorPage(note));
+                Console.WriteLine("Edit Note Tapped");
+            }
+        }
+
+        private async void OnShareNoteTapped(object sender, EventArgs e)
+        {
+            if (sender is Label label && label.BindingContext is Note note)
+            {
+                // Serialize the note content for sharing
+                var noteContent = note.Content;
+                string shareText = $"Title: {noteContent.Title}\n\n{noteContent.Content}\n\nCreated: {noteContent.CreatedDate:MM/dd/yyyy}";
+
+                // Use the Share API to share the note
+                await Share.Default.RequestAsync(new ShareTextRequest
+                {
+                    Text = shareText,
+                    Title = $"Share Note: {noteContent.Title}"
+                });
+            }
+        }
+
     }
 }

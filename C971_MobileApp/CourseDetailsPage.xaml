@@ -105,73 +105,83 @@
                            FontSize="18" 
                            FontAttributes="Bold" 
                            HorizontalTextAlignment="Center" />
-
+                
                 <!-- Notes List -->
                 <CollectionView x:Name="NotesCollectionView"
-                                    ItemsSource="{Binding Notes}"
-                                    SelectionMode="None"
-                                    BackgroundColor="White">
+                                ItemsSource="{Binding Notes}"
+                                SelectionMode="None"
+                                BackgroundColor="White">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Border Stroke="{StaticResource Primary}"
-                                        StrokeThickness="1"
-                                        BackgroundColor="{StaticResource NeutralLightGray}"
-                                        Padding="10"
-                                        Margin="5">
+                                    StrokeThickness="1"
+                                    BackgroundColor="{StaticResource NeutralLightGray}"
+                                    Padding="10"
+                                    Margin="5">
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="10" />
                                 </Border.StrokeShape>
-                                <Grid RowDefinitions="Auto,Auto,Auto"
-                                          ColumnDefinitions="*,Auto,Auto,Auto">
-
-                                    <!-- Note Title -->
-                                    <Label Text="{Binding Title}" 
-                                               FontSize="16" 
-                                               FontAttributes="Bold" 
-                                               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
-                                               LineBreakMode="TailTruncation" />
-
-                                    <!-- Note Content (Truncated) -->
-                                    <Label Text="{Binding Content}" 
-                                               FontSize="14" 
-                                               TextColor="DarkGray" 
-                                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"
-                                               LineBreakMode="TailTruncation" />
-
-                                    <!-- Note Date -->
-                                    <Label Text="{Binding CreatedDate, StringFormat='{0:MM/dd/yyyy}'}" 
-                                               FontSize="12" 
-                                               TextColor="DarkGray" 
-                                               Grid.Row="2" Grid.Column="0"
-                                               VerticalOptions="Center" />
+                                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+                                      ColumnDefinitions="*,Auto,Auto">
 
                                     <!-- Edit Icon -->
                                     <Label Text="{x:Static models:Icons.Edit}" 
-                                               Style="{StaticResource MaterialIcon}" 
-                                               Grid.Row="2" Grid.Column="1"
-                                               HorizontalOptions="End">
+                                           Style="{StaticResource MaterialIcon}" 
+                                           Grid.Row="0" Grid.Column="2"
+                                           HorizontalOptions="End">
                                         <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding EditCommand}" />
+                                            <TapGestureRecognizer Tapped="OnEditNoteTapped" />
                                         </Label.GestureRecognizers>
                                     </Label>
 
+                                    <!-- Note Title -->
+                                    <Label Text="{Binding Content.Title}" 
+                                           FontSize="16" 
+                                           FontAttributes="Bold" 
+                                           Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+                                           LineBreakMode="TailTruncation" />
+
+                                    <!-- Note Content (Truncated) -->
+                                    <Label Text="{Binding Content.Content}" 
+                                           FontSize="14" 
+                                           TextColor="{StaticResource Gray600}" 
+                                           Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
+                                           LineBreakMode="TailTruncation" />
+
+                                    <!-- Created and Updated Dates -->
+                                    <HorizontalStackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+                                        <Label Text="Created:" 
+                                               FontSize="12" 
+                                               TextColor="{StaticResource Gray600}" />
+                                        <Label Text="{Binding Content.CreatedDate, StringFormat='{0:MM/dd/yyyy}'}" 
+                                               FontSize="12" 
+                                               TextColor="{StaticResource Gray600}" 
+                                               Margin="5,0,10,0" />
+                                        <Label Text="Updated:" 
+                                               FontSize="12" 
+                                               TextColor="{StaticResource Gray600}" />
+                                        <Label Text="{Binding Content.LastUpdated, StringFormat='{0:MM/dd/yyyy}'}" 
+                                               FontSize="12" 
+                                               TextColor="{StaticResource Gray600}" />
+                                    </HorizontalStackLayout>
+
                                     <!-- Delete Icon -->
                                     <Label Text="{x:Static models:Icons.Delete}" 
-                                               Style="{StaticResource MaterialIcon}" 
-                                               Grid.Row="2" Grid.Column="2"
-                                               HorizontalOptions="End">
+                                           Style="{StaticResource MaterialIcon}" 
+                                           Grid.Row="4" Grid.Column="0"
+                                           HorizontalOptions="Start">
                                         <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding DeleteCommand}" />
+                                            <TapGestureRecognizer Tapped="OnDeleteNoteTapped" />
                                         </Label.GestureRecognizers>
                                     </Label>
 
                                     <!-- Share Icon -->
                                     <Label Text="{x:Static models:Icons.Share}" 
-                                               Style="{StaticResource MaterialIcon}" 
-                                               Grid.Row="2" Grid.Column="3"
-                                               HorizontalOptions="End">
+                                           Style="{StaticResource MaterialIcon}" 
+                                           Grid.Row="4" Grid.Column="2"
+                                           HorizontalOptions="End">
                                         <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding ShareCommand}" />
+                                            <TapGestureRecognizer Tapped="OnShareNoteTapped" />
                                         </Label.GestureRecognizers>
                                     </Label>
                                 </Grid>
@@ -179,7 +189,7 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-
+                
                 <!-- Add Course Button -->
                 <HorizontalStackLayout
                         Spacing="5"

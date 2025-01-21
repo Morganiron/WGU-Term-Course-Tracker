@@ -20,12 +20,12 @@ namespace C971_MobileApp
 
             _database = new SQLiteAsyncConnection(databasePath);
 
-            await _database.CreateTableAsync<Term>();
-            await _database.CreateTableAsync<Course>();
-            await _database.CreateTableAsync<Note>();
+                await _database.CreateTableAsync<Term>();
+                await _database.CreateTableAsync<Course>();
+                await _database.CreateTableAsync<Note>();
 
-           // Seed default data
-           await SeedDatabaseAsync();
+            // Seed default data
+            await SeedDatabaseAsync();
         }
 
         public static SQLiteAsyncConnection Database => _database;
