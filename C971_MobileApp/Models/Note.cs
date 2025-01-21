@@ -11,6 +11,7 @@ namespace C971_MobileApp.Models
         public string SerializedNote { get; set; } = "{}"; // Serialized JSON of the note content
 
         // Gets or sets note content by serializing/deserializing the JSON string
+        [Ignore]
         public NoteContent Content
         {
             get => JsonSerializer.Deserialize<NoteContent>(SerializedNote) ?? new NoteContent();
