@@ -50,9 +50,6 @@ namespace C971_MobileApp
             {
                 term.Courses = await _database.Table<Course>().Where(c => c.TermID == term.ID).ToListAsync();
                 term.IsExpanded = false; // Default to collapsed
-
-                //Debug
-                Console.WriteLine($"Term: {term.Title}, Courses Count: {term.Courses.Count}");
             }
             return terms;
         }

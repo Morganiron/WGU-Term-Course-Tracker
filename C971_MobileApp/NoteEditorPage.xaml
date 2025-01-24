@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971_MobileApp.NoteEditorPage"
+             Title="{Binding PageTitle}">
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Padding="15">
+            <!-- Note Title -->
+            <Label Text="Title" FontAttributes="Bold" />
+            <Border Stroke="Gray"
+                    StrokeThickness="1"
+                    Padding="5"
+                    Margin="0,0,0,15">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+                <Entry Text="{Binding NoteTitle, Mode=TwoWay}" Placeholder="Enter note title" />
+            </Border>
+
+            <!-- Note Content -->
+            <Label Text="Content" FontAttributes="Bold" />
+            <Border Stroke="Gray"
+                    StrokeThickness="1"
+                    Padding="5"
+                    HeightRequest="200"
+                    Margin="0,0,0,15">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+                <Editor Text="{Binding NoteContent, Mode=TwoWay}" Placeholder="Enter note content" />
+            </Border>
+
+            <!-- Created and Updated Dates -->
+            <VerticalStackLayout IsVisible="{Binding ShowDates}">
+                <HorizontalStackLayout>
+                    <Label Text="Created: " FontAttributes="Bold" />
+                    <Label Text="{Binding CreatedDate, StringFormat='{0:MM/dd/yyyy HH:mm}'}" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Updated: " FontAttributes="Bold" />
+                    <Label Text="{Binding LastUpdated, StringFormat='{0:MM/dd/yyyy HH:mm}'}" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- Action Buttons -->
+            <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+                <Button Text="Save" 
+                        Clicked="OnSaveClicked"
+                        BackgroundColor="{StaticResource Primary}" 
+                        TextColor="White" />
+                <Button Text="Cancel" 
+                        Clicked="OnCancelClicked"
+                        BackgroundColor="Gray" 
+                        TextColor="White" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

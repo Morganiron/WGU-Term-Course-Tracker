@@ -14,8 +14,16 @@ namespace C971_MobileApp.Models
         [Ignore]
         public NoteContent Content
         {
-            get => JsonSerializer.Deserialize<NoteContent>(SerializedNote) ?? new NoteContent();
-            set => SerializedNote = JsonSerializer.Serialize(value);
+            get
+            {
+                var deserializedContent = JsonSerializer.Deserialize<NoteContent>(SerializedNote) ?? new NoteContent();
+                return deserializedContent;
+            }
+
+            set
+            {
+                SerializedNote = JsonSerializer.Serialize(value);
+            }
         }
 
         // Create a new Note instance

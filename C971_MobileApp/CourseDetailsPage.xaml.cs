@@ -76,7 +76,6 @@ namespace C971_MobileApp
                         NotifyTime = notifyTime
                     }
                 };
-                Console.WriteLine($"Scheduled startDate notification date and time{notifyTime}");
                 await LocalNotificationCenter.Current.Show(notification);
             }
             else
@@ -112,7 +111,6 @@ namespace C971_MobileApp
                         NotifyTime = notifyTime
                     }
                 };
-                Console.WriteLine($"Scheduled endDate notification date and time{_course.EndDate}");
                 await LocalNotificationCenter.Current.Show(notification);
             }
             else
@@ -162,23 +160,19 @@ namespace C971_MobileApp
 
         private async void OnAddNoteTapped(object sender, EventArgs e)
         {
-            string title = await DisplayPromptAsync("New Note", "Enter note title:");
-            if (string.IsNullOrWhiteSpace(title)) return;
+            // Create a new note linked to the current course
+            var newNote = Note.Create(_course.ID, string.Empty, string.Empty);
 
-            string content = await DisplayPromptAsync("New Note", "Enter note content:");
-            if (string.IsNullOrWhiteSpace(content)) return;
+            // Navigate to the NoteEditorPage for the new note
+            await Navigation.PushAsync(new NoteEditorPage(newNote, isNewNote: true));
+        }
 
-            var newNote = Note.Create(_course.ID, title, content);
-
-            try
+        private async void OnEditNoteTapped(object sender, EventArgs e)
+        {
+            if (sender is Label label && label.BindingContext is Note noteToEdit)
             {
-                await DatabaseService.AddNoteAsync(newNote);
-                Notes.Add(newNote); // Update the collection
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error adding note: {ex.Message}");
-                await DisplayAlert("Error", "Failed to add note.", "OK");
+                // Navigate to the NoteEditorPage for the existing note
+                await Navigation.PushAsync(new NoteEditorPage(noteToEdit, isNewNote: false));
             }
         }
 
@@ -198,17 +192,6 @@ namespace C971_MobileApp
 
                     await DisplayAlert("Success", "Note deleted successfully!", "OK");
                 }
-            }
-        }
-
-
-        private async void OnEditNoteTapped(object sender, EventArgs e)
-        {
-            if (sender is Label label && label.BindingContext is Note note)
-            {
-                // Navigate to a NoteEditorPage to edit the note
-                //await Navigation.PushAsync(new NoteEditorPage(note));
-                Console.WriteLine("Edit Note Tapped");
             }
         }
 

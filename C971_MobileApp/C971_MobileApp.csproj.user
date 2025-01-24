@@ -17,6 +17,9 @@
     <MauiXaml Update="CourseInputPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="NoteEditorPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="TermInputPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
