@@ -190,7 +190,7 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
                 
-                <!-- Add Course Button -->
+                <!-- Add Note Button -->
                 <HorizontalStackLayout
                         Spacing="5"
                         HorizontalOptions="Center"
@@ -208,6 +208,63 @@
                     </Label>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
+            
+            <!-- Horizontal Line separator -->
+            <BoxView HeightRequest="1" Color="{StaticResource NeutralGray}" />
+
+            <!-- Assessments Section -->
+            <ScrollView>
+                <VerticalStackLayout Padding="10" >
+                    <!-- Performance Assessments -->
+                    <Label Text="Performance Assessments" FontAttributes="Bold" FontSize="20" Margin="0,10,0,5"
+                           HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+                    <HorizontalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="End">
+                        <Label Text="Add Performance Assessment" FontSize="16" />
+                        <Label Text="{x:Static models:Icons.Add}" Style="{StaticResource MaterialIcon}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnAddPerformanceAssessmentTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </HorizontalStackLayout>
+                    <CollectionView x:Name="PerformanceAssessmentsCollectionView" ItemsSource="{Binding PerformanceAssessments}" BackgroundColor="{StaticResource White}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Stroke="Gray" StrokeThickness="1" Padding="10" Margin="5" BackgroundColor="{StaticResource NeutralLightGray}">
+                                    <VerticalStackLayout>
+                                        <Label Text="{Binding Title}" FontAttributes="Bold" />
+                                        <Label Text="{Binding DueDate, StringFormat='Due: {0:MM/dd/yyyy}'}" />
+                                    </VerticalStackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <!-- Objective Assessments -->
+                    <Label Text="Objective Assessments" FontAttributes="Bold" FontSize="20" Margin="0,20,0,5"
+                           HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+                    <HorizontalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="End">
+                        <Label Text="Add Objective Assessment" FontSize="16" />
+                        <Label Text="{x:Static models:Icons.Add}" Style="{StaticResource MaterialIcon}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnAddObjectiveAssessmentTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </HorizontalStackLayout>
+                    <CollectionView x:Name="ObjectiveAssessmentsCollectionView" ItemsSource="{Binding ObjectiveAssessments}" BackgroundColor="{StaticResource White}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Stroke="Gray" StrokeThickness="1" Padding="10" Margin="5" BackgroundColor="{StaticResource NeutralLightGray}">
+                                    <VerticalStackLayout>
+                                        <Label Text="{Binding Title}" FontAttributes="Bold" />
+                                        <Label Text="{Binding DueDate, StringFormat='Due: {0:MM/dd/yyyy}'}" />
+                                    </VerticalStackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </ScrollView>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

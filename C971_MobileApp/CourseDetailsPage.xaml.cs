@@ -11,11 +11,44 @@ namespace C971_MobileApp
 
         private ObservableCollection<Note> _notes;
 
+        private ObservableCollection<Assessment> _performanceAssessments;
+        private ObservableCollection<Assessment> _objectiveAssessments;
+
+        internal ObservableCollection<Assessment> PerformanceAssessments
+        {
+            get => _performanceAssessments;
+            set
+            {
+                _performanceAssessments = value;
+                OnPropertyChanged(nameof(PerformanceAssessments));
+            }
+        }
+
+        internal ObservableCollection<Assessment> ObjectiveAssessments
+        {
+            get => _objectiveAssessments;
+            set
+            {
+                _objectiveAssessments = value;
+                OnPropertyChanged(nameof(ObjectiveAssessments));
+            }
+        }
+
         internal CourseDetailsPage(Course course)
         {
             InitializeComponent();
             _course = course;
+
+            // Set course as the BindingContext for course-related bindings
             BindingContext = _course;
+
+            // Initialize assessments
+            PerformanceAssessments = new ObservableCollection<Assessment>();
+            ObjectiveAssessments = new ObservableCollection<Assessment>();
+
+            // Set ItemsSource for the CollectionViews
+            PerformanceAssessmentsCollectionView.ItemsSource = PerformanceAssessments;
+            ObjectiveAssessmentsCollectionView.ItemsSource = ObjectiveAssessments;
 
             // Initialize the notification toggle values
             StartDateNotificationToggle.IsToggled = _course.StartDateNotificationEnabled;
@@ -212,5 +245,32 @@ namespace C971_MobileApp
             }
         }
 
+        private void OnAddPerformanceAssessmentTapped(object sender, EventArgs e)
+        {
+            var newAssessment = new Assessment
+            {
+                Title = "Performance Assessment",
+                Type = "Performance",
+                CourseID = _course.ID,
+                DueDate = DateTime.Now.AddDays(7) // Set a default due date
+            };
+
+            PerformanceAssessments.Add(newAssessment);
+
+        }
+
+        private void OnAddObjectiveAssessmentTapped(object sender, EventArgs e)
+        {
+            var newAssessment = new Assessment
+            {
+                Title = "Default Objective Assessment",
+                Type = "Objective",
+                CourseID = _course.ID,
+                DueDate = DateTime.Now.AddDays(14) // Set a default due date
+            };
+
+            ObjectiveAssessments.Add(newAssessment);
+
+        }
     }
 }

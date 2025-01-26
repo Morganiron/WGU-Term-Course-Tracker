@@ -3,36 +3,48 @@
   "WorkspaceRootPath": "C:\\C971\\C971_MobileApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\noteeditorpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:noteeditorpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\noteeditorpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:noteeditorpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\models\\note.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:models\\note.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\models\\notecontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:models\\notecontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\courseinputpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:courseinputpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\coursedetailspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:coursedetailspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\coursedetailspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:coursedetailspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\assessment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:assessment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\models\\note.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:models\\note.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\term.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:term.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\courseinputpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:courseinputpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\noteeditorpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:noteeditorpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\noteeditorpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:noteeditorpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\models\\notecontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:models\\notecontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,14 +63,6 @@
       "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\term.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:term.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|c:\\c971\\c971_mobileapp\\terminputpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{A53E97BA-8A14-4FEE-8664-A92AEB9CD0F9}|C971_MobileApp.csproj|solutionrelative:terminputpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -74,37 +78,61 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "Assessment.cs",
+              "DocumentMoniker": "C:\\C971\\C971_MobileApp\\Assessment.cs",
+              "RelativeDocumentMoniker": "Assessment.cs",
+              "ToolTip": "C:\\C971\\C971_MobileApp\\Assessment.cs",
+              "RelativeToolTip": "Assessment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T21:52:19.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DatabaseService.cs",
+              "DocumentMoniker": "C:\\C971\\C971_MobileApp\\DatabaseService.cs",
+              "RelativeDocumentMoniker": "DatabaseService.cs",
+              "ToolTip": "C:\\C971\\C971_MobileApp\\DatabaseService.cs",
+              "RelativeToolTip": "DatabaseService.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAAADMAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T22:15:16.62Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "NoteEditorPage.xaml.cs",
               "DocumentMoniker": "C:\\C971\\C971_MobileApp\\NoteEditorPage.xaml.cs",
               "RelativeDocumentMoniker": "NoteEditorPage.xaml.cs",
-              "ToolTip": "C:\\C971\\C971_MobileApp\\NoteEditorPage.xaml.cs*",
-              "RelativeToolTip": "NoteEditorPage.xaml.cs*",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAuwHgAAAAwAAAAAAAAAA==",
+              "ToolTip": "C:\\C971\\C971_MobileApp\\NoteEditorPage.xaml.cs",
+              "RelativeToolTip": "NoteEditorPage.xaml.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAAAGgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-22T21:43:52.19Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "NoteEditorPage.xaml",
               "DocumentMoniker": "C:\\C971\\C971_MobileApp\\NoteEditorPage.xaml",
               "RelativeDocumentMoniker": "NoteEditorPage.xaml",
               "ToolTip": "C:\\C971\\C971_MobileApp\\NoteEditorPage.xaml",
               "RelativeToolTip": "NoteEditorPage.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-22T21:30:58.424Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-22T21:30:58.424Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "MainPage.xaml.cs",
               "DocumentMoniker": "C:\\C971\\C971_MobileApp\\MainPage.xaml.cs",
               "RelativeDocumentMoniker": "MainPage.xaml.cs",
@@ -116,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\C971\\C971_MobileApp\\App.xaml.cs",
               "RelativeDocumentMoniker": "App.xaml.cs",
@@ -128,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "NoteContent.cs",
               "DocumentMoniker": "C:\\C971\\C971_MobileApp\\Models\\NoteContent.cs",
               "RelativeDocumentMoniker": "Models\\NoteContent.cs",
@@ -146,14 +174,14 @@
               "RelativeDocumentMoniker": "Models\\Note.cs",
               "ToolTip": "C:\\C971\\C971_MobileApp\\Models\\Note.cs",
               "RelativeToolTip": "Models\\Note.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAqwBsAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAYwDoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-18T23:46:19.982Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "Icons.cs",
               "DocumentMoniker": "C:\\C971\\C971_MobileApp\\Models\\Icons.cs",
               "RelativeDocumentMoniker": "Models\\Icons.cs",
@@ -165,31 +193,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "CourseDetailsPage.xaml.cs",
               "DocumentMoniker": "C:\\C971\\C971_MobileApp\\CourseDetailsPage.xaml.cs",
               "RelativeDocumentMoniker": "CourseDetailsPage.xaml.cs",
               "ToolTip": "C:\\C971\\C971_MobileApp\\CourseDetailsPage.xaml.cs",
               "RelativeToolTip": "CourseDetailsPage.xaml.cs",
-              "ViewState": "AgIAAJYAAABAYmZmZqYowLEAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAPYAAAAAAAAAAAAIwAsBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-16T21:11:31.603Z"
+              "WhenOpened": "2025-01-16T21:11:31.603Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "CourseDetailsPage.xaml",
               "DocumentMoniker": "C:\\C971\\C971_MobileApp\\CourseDetailsPage.xaml",
               "RelativeDocumentMoniker": "CourseDetailsPage.xaml",
               "ToolTip": "C:\\C971\\C971_MobileApp\\CourseDetailsPage.xaml",
               "RelativeToolTip": "CourseDetailsPage.xaml",
-              "ViewState": "AgIAAJEAAAAAAAAAAAAuwL0AAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAN8AAACAYWZmZmYbwPgAAABgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-16T20:54:44.268Z"
+              "WhenOpened": "2025-01-16T20:54:44.268Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "CourseInputPage.xaml",
               "DocumentMoniker": "C:\\C971\\C971_MobileApp\\CourseInputPage.xaml",
               "RelativeDocumentMoniker": "CourseInputPage.xaml",
@@ -197,48 +227,38 @@
               "RelativeToolTip": "CourseInputPage.xaml",
               "ViewState": "AgIAADUAAAAAAAAAAAAYwEAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-10T21:56:31.136Z"
+              "WhenOpened": "2025-01-10T21:56:31.136Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 4,
               "Title": "Course.cs",
               "DocumentMoniker": "C:\\C971\\C971_MobileApp\\Course.cs",
               "RelativeDocumentMoniker": "Course.cs",
               "ToolTip": "C:\\C971\\C971_MobileApp\\Course.cs",
               "RelativeToolTip": "Course.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAqwCIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T20:51:26.041Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DatabaseService.cs",
-              "DocumentMoniker": "C:\\C971\\C971_MobileApp\\DatabaseService.cs",
-              "RelativeDocumentMoniker": "DatabaseService.cs",
-              "ToolTip": "C:\\C971\\C971_MobileApp\\DatabaseService.cs",
-              "RelativeToolTip": "DatabaseService.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAwwFsAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T20:07:46.475Z",
+              "WhenOpened": "2025-01-06T20:51:26.041Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 5,
               "Title": "Term.cs",
               "DocumentMoniker": "C:\\C971\\C971_MobileApp\\Term.cs",
               "RelativeDocumentMoniker": "Term.cs",
               "ToolTip": "C:\\C971\\C971_MobileApp\\Term.cs",
               "RelativeToolTip": "Term.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAoAAAAAMA9wBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T22:56:47.19Z"
+              "WhenOpened": "2024-12-21T22:56:47.19Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "CourseInputPage.xaml.cs",
               "DocumentMoniker": "C:\\C971\\C971_MobileApp\\CourseInputPage.xaml.cs",
               "RelativeDocumentMoniker": "CourseInputPage.xaml.cs",
@@ -250,7 +270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "TermInputPage.xaml.cs",
               "DocumentMoniker": "C:\\C971\\C971_MobileApp\\TermInputPage.xaml.cs",
               "RelativeDocumentMoniker": "TermInputPage.xaml.cs",
@@ -262,7 +282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "TermInputPage.xaml",
               "DocumentMoniker": "C:\\C971\\C971_MobileApp\\TermInputPage.xaml",
               "RelativeDocumentMoniker": "TermInputPage.xaml",
