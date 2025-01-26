@@ -59,6 +59,7 @@ namespace C971_MobileApp
         {
             base.OnAppearing();
             await LoadNotesAsync();
+            await LoadAssessmentsAsync();
         }
 
         private async Task LoadNotesAsync()
@@ -73,6 +74,27 @@ namespace C971_MobileApp
             {
                 Console.WriteLine($"Error loading notes: {ex.Message}");
                 await DisplayAlert("Error", "Failed to load notes.", "OK");
+            }
+        }
+
+        private async Task LoadAssessmentsAsync()
+        {
+            try
+            {
+                var assessments = await DatabaseService.Database.Table<Assessment>().Where(a => a.CourseID == _course.ID).ToListAsync();
+
+                // Separate assessments into performance and objective types
+                PerformanceAssessments = new ObservableCollection<Assessment>(assessments.Where(a => a.Type == "Performance"));
+                ObjectiveAssessments = new ObservableCollection<Assessment>(assessments.Where(a => a.Type == "Objective"));
+
+                // Ensure the CollectionViews are updated
+                PerformanceAssessmentsCollectionView.ItemsSource = PerformanceAssessments;
+                ObjectiveAssessmentsCollectionView.ItemsSource = ObjectiveAssessments;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading assessments: {ex.Message}");
+                await DisplayAlert("Error", "Failed to load assessments.", "OK");
             }
         }
 
@@ -245,7 +267,7 @@ namespace C971_MobileApp
             }
         }
 
-        private void OnAddPerformanceAssessmentTapped(object sender, EventArgs e)
+        private async void OnAddPerformanceAssessmentTapped(object sender, EventArgs e)
         {
             var newAssessment = new Assessment
             {
@@ -257,9 +279,12 @@ namespace C971_MobileApp
 
             PerformanceAssessments.Add(newAssessment);
 
+            // Save the assessment to the database
+            await DatabaseService.AddAssessmentAsync(newAssessment);
+
         }
 
-        private void OnAddObjectiveAssessmentTapped(object sender, EventArgs e)
+        private async void OnAddObjectiveAssessmentTapped(object sender, EventArgs e)
         {
             var newAssessment = new Assessment
             {
@@ -270,6 +295,9 @@ namespace C971_MobileApp
             };
 
             ObjectiveAssessments.Add(newAssessment);
+
+            // Save the assessment to the database
+            await DatabaseService.AddAssessmentAsync(newAssessment);
 
         }
     }

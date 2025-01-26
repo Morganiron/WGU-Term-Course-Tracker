@@ -20,9 +20,10 @@ namespace C971_MobileApp
 
             _database = new SQLiteAsyncConnection(databasePath);
 
-                await _database.CreateTableAsync<Term>();
-                await _database.CreateTableAsync<Course>();
-                await _database.CreateTableAsync<Note>();
+            await _database.CreateTableAsync<Term>();
+            await _database.CreateTableAsync<Course>();
+            await _database.CreateTableAsync<Note>();
+            await Database.CreateTableAsync<Assessment>();
 
             // Seed default data
             await SeedDatabaseAsync();
@@ -154,6 +155,19 @@ namespace C971_MobileApp
             }
 
         }
+
+        public static async Task AddAssessmentAsync(Assessment assessment)
+        {
+            try
+            {
+                await Database.InsertAsync(assessment);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding assessment: {ex.Message}");
+            }
+        }
+
     }
 
 }
