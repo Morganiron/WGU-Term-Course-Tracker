@@ -1,4 +1,6 @@
-﻿namespace C971_MobileApp
+﻿using C971_MobileApp.Models;
+
+namespace C971_MobileApp
 {
     public partial class App : Application
     {

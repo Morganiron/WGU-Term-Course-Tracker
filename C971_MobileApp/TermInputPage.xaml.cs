@@ -1,3 +1,5 @@
+using C971_MobileApp.Models;
+
 namespace C971_MobileApp;
 
 public partial class TermInputPage : ContentPage

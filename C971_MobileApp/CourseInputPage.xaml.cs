@@ -1,4 +1,5 @@
 using System;
+using C971_MobileApp.Models;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Internals;
 

@@ -271,34 +271,60 @@ namespace C971_MobileApp
         {
             var newAssessment = new Assessment
             {
-                Title = "Performance Assessment",
                 Type = "Performance",
                 CourseID = _course.ID,
-                DueDate = DateTime.Now.AddDays(7) // Set a default due date
+                StartDate = DateTime.Now.Date,
+                EndDate = DateTime.Now.Date.AddDays(7)
             };
-
-            PerformanceAssessments.Add(newAssessment);
-
-            // Save the assessment to the database
-            await DatabaseService.AddAssessmentAsync(newAssessment);
-
+            await Navigation.PushAsync(new AssessmentInputPage(newAssessment));
         }
 
         private async void OnAddObjectiveAssessmentTapped(object sender, EventArgs e)
         {
             var newAssessment = new Assessment
             {
-                Title = "Default Objective Assessment",
                 Type = "Objective",
                 CourseID = _course.ID,
-                DueDate = DateTime.Now.AddDays(14) // Set a default due date
+                StartDate = DateTime.Now.Date,
+                EndDate = DateTime.Now.Date.AddDays(7)
             };
-
-            ObjectiveAssessments.Add(newAssessment);
-
-            // Save the assessment to the database
-            await DatabaseService.AddAssessmentAsync(newAssessment);
-
+            await Navigation.PushAsync(new AssessmentInputPage(newAssessment));
         }
+
+
+        private async void OnEditAssessmentTapped(object sender, EventArgs e)
+        {
+            if (sender is Label label && label.BindingContext is Assessment assessmentToEdit)
+            {
+                // Navigate to the AssessmentInputPage with the selected assessment
+                await Navigation.PushAsync(new AssessmentInputPage(assessmentToEdit));
+            }
+        }
+
+        private async void OnDeleteAssessmentTapped(object sender, EventArgs e)
+        {
+            if (sender is Label label && label.BindingContext is Assessment assessmentToDelete)
+            {
+                bool confirm = await DisplayAlert("Confirm Delete", $"Are you sure you want to delete the assessment \"{assessmentToDelete.Title}\"?", "Yes", "No");
+                if (confirm)
+                {
+                    // Delete the assessment from the database
+                    await DatabaseService.DeleteAssessmentAsync(assessmentToDelete);
+
+                    // Update the CollectionView
+                    if (assessmentToDelete.Type == "Performance")
+                    {
+                        PerformanceAssessments.Remove(assessmentToDelete);
+                    }
+                    else if (assessmentToDelete.Type == "Objective")
+                    {
+                        ObjectiveAssessments.Remove(assessmentToDelete);
+                    }
+
+                    await DisplayAlert("Success", "Assessment deleted successfully!", "OK");
+                }
+            }
+        }
+
     }
 }

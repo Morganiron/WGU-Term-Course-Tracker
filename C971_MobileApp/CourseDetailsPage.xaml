@@ -230,10 +230,26 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Border Stroke="Gray" StrokeThickness="1" Padding="10" Margin="5" BackgroundColor="{StaticResource NeutralLightGray}">
-                                    <VerticalStackLayout>
-                                        <Label Text="{Binding Title}" FontAttributes="Bold" />
-                                        <Label Text="{Binding DueDate, StringFormat='Due: {0:MM/dd/yyyy}'}" />
-                                    </VerticalStackLayout>
+                                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto">
+                                        <!-- Title with Edit Icon -->
+                                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Title}" FontAttributes="Bold" FontSize="16" />
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{x:Static models:Icons.Edit}" Style="{StaticResource MaterialIcon}" HorizontalOptions="End">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnEditAssessmentTapped" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+
+                                        <!-- Start and End Dates -->
+                                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding StartDate, StringFormat='Start: {0:MM/dd/yyyy}'}" FontSize="14" />
+                                        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding EndDate, StringFormat='End: {0:MM/dd/yyyy}'}" FontSize="14" HorizontalOptions="Start"/>
+
+                                        <!-- Delete Icon -->
+                                        <Label Grid.Row="3" Grid.Column="0" Text="{x:Static models:Icons.Delete}" Style="{StaticResource MaterialIcon}" HorizontalOptions="Start">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnDeleteAssessmentTapped" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </Grid>
                                 </Border>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
@@ -254,10 +270,26 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Border Stroke="Gray" StrokeThickness="1" Padding="10" Margin="5" BackgroundColor="{StaticResource NeutralLightGray}">
-                                    <VerticalStackLayout>
-                                        <Label Text="{Binding Title}" FontAttributes="Bold" />
-                                        <Label Text="{Binding DueDate, StringFormat='Due: {0:MM/dd/yyyy}'}" />
-                                    </VerticalStackLayout>
+                                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto">
+                                        <!-- Title with Edit Icon -->
+                                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Title}" FontAttributes="Bold" FontSize="16" />
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{x:Static models:Icons.Edit}" Style="{StaticResource MaterialIcon}" HorizontalOptions="End">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnEditAssessmentTapped" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+
+                                        <!-- Start and End Dates -->
+                                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding StartDate, StringFormat='Start: {0:MM/dd/yyyy}'}" FontSize="14" />
+                                        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding EndDate, StringFormat='End: {0:MM/dd/yyyy}'}" FontSize="14" HorizontalOptions="Start"/>
+
+                                        <!-- Delete Icon -->
+                                        <Label Grid.Row="3" Grid.Column="0" Text="{x:Static models:Icons.Delete}" Style="{StaticResource MaterialIcon}" HorizontalOptions="Start">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnDeleteAssessmentTapped" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </Grid>
                                 </Border>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
