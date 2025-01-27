@@ -102,12 +102,12 @@ namespace C971_MobileApp
         {
             if (sender is Label label && label.BindingContext is Course course)
             {
-                //var confirm = await DisplayAlert("Confirm Delete", $"Are you sure you want to delete the course '{course.Title}'?", "Yes", "No");
-                //if (confirm)
-                //{
-                //    //await DatabaseService.DeleteCourseAsync(course);
-                //    await LoadTermsAsync(); // Reload terms after deletion
-                //}
+                var confirm = await DisplayAlert("Confirm Delete", $"Are you sure you want to delete the course '{course.Title}'?", "Yes", "No");
+                if (confirm)
+                {
+                    //await DatabaseService.DeleteCourseAsync(course);
+                    await LoadTermsAsync(); // Reload terms after deletion
+                }
             }
         }
 

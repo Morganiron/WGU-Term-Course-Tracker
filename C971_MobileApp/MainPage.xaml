@@ -100,7 +100,7 @@
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
                                             <Frame Padding="10" CornerRadius="10" Margin="5" BackgroundColor="{StaticResource Gray300}" HasShadow="True" BorderColor="{StaticResource NeutralLightBlue}">
-                                                <Grid ColumnDefinitions="*,3*,*" RowDefinitions="Auto,Auto,Auto">
+                                                <Grid ColumnDefinitions="*,3*,*" RowDefinitions="Auto,Auto,Auto, Auto">
                                                     <!-- Row 0: Course Name -->
                                                     <Label 
                                                 Grid.Column="1" 
@@ -142,27 +142,36 @@
                                                         </Label.GestureRecognizers>
                                                     </Label>
                                                     <Label 
-                                                Grid.Column="1" 
-                                                Grid.Row="2" 
-                                                Text="{Binding EndDate, StringFormat='End: {0:MM/dd/yyyy}'}" 
-                                                FontSize="14"
-                                                    HorizontalTextAlignment="Center"
-                                                VerticalOptions="Center" 
-                                                HorizontalOptions="Center" />
+                                                        Grid.Column="1" 
+                                                        Grid.Row="2" 
+                                                        Text="{Binding EndDate, StringFormat='End: {0:MM/dd/yyyy}'}" 
+                                                        FontSize="14"
+                                                        HorizontalTextAlignment="Center"
+                                                        VerticalOptions="Center" 
+                                                        HorizontalOptions="Center" />
                                                     <Label 
-                                                Grid.Column="2" 
-                                                Grid.Row="2" 
-                                                Text="Details" 
-                                                FontSize="14" 
-                                                    HorizontalTextAlignment="Center"
-                                                TextDecorations="Underline" 
-                                                TextColor="{StaticResource PrimaryColor}"
-                                                VerticalOptions="Center" 
-                                                HorizontalOptions="Center">
+                                                        Grid.Column="2" 
+                                                        Grid.Row="2" 
+                                                        Text="Details" 
+                                                        FontSize="14"
+                                                        HorizontalTextAlignment="Center"
+                                                        TextDecorations="Underline" 
+                                                        TextColor="{StaticResource PrimaryColor}"
+                                                        VerticalOptions="Center" 
+                                                        HorizontalOptions="Center">
                                                         <Label.GestureRecognizers>
                                                             <TapGestureRecognizer Tapped="OnShowCourseDetailsTapped" />
                                                         </Label.GestureRecognizers>
                                                     </Label>
+                                                    <Label 
+                                                        Grid.Column="1" 
+                                                        Grid.Row="3" 
+                                                        FontSize="14"
+                                                        Text="{Binding Status}"
+                                                        HorizontalTextAlignment="Center"
+                                                        TextColor="{StaticResource PrimaryColor}"
+                                                        VerticalOptions="Center" 
+                                                        HorizontalOptions="Center"/>
                                                 </Grid>
                                             </Frame>
                                         </DataTemplate>
