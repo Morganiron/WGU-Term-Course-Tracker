@@ -94,63 +94,61 @@ namespace C971_MobileApp.Models
         // Task to create default data in the database
         private static async Task SeedDatabaseAsync()
         {
-            // Check if there are any terms in the database
+            // Check if terms already exist in the database
             var terms = await _database.Table<Term>().ToListAsync();
-            if (terms.Count == 0)
+            if (terms.Count > 0) return; // Skip seeding if data already exists
+
+            // Create one term
+            var term = new Term
             {
-                // Create Term 1 (past term)
-                var term1 = new Term
-                {
-                    Title = "Summer 2024",
-                    StartDate = new DateTime(2024, 5, 1),
-                    EndDate = new DateTime(2024, 10, 31)
-                };
-                // Create Term 2 (current term)
-                var term2 = new Term
-                {
-                    Title = "Fall 2024",
-                    StartDate = new DateTime(2024, 11, 1),
-                    EndDate = new DateTime(2025, 4, 30)
-                };
+                Title = "Spring 2025",
+                StartDate = DateTime.Now.AddDays(1),
+                EndDate = new DateTime(2025, 6, 30)
+            };
+            await _database.InsertAsync(term);
 
-                await _database.InsertAsync(term1);
-                await _database.InsertAsync(term2);
-
-                // Generate courses for each term
-                await GenerateCourses(term1.ID, term2.ID);
-            }
-        }
-
-        private static async Task GenerateCourses(int Term1ID, int Term2ID)
-        {
-            var courses = new List<Course>();
-
-            // Courses for Term 1
-            courses.AddRange(new List<Course>
-                {
-                new Course { TermID = Term1ID, Title = "Math 101", Status = "Passed", StartDate = new DateTime(2024, 5, 1), EndDate = new DateTime(2024, 6, 30) },
-                new Course { TermID = Term1ID, Title = "English 101", Status = "Passed", StartDate = new DateTime(2024, 7, 1), EndDate = new DateTime(2024, 8, 31) },
-                new Course { TermID = Term1ID, Title = "History 101", Status = "Passed", StartDate = new DateTime(2024, 9, 1), EndDate = new DateTime(2024, 9, 30) },
-                new Course { TermID = Term1ID, Title = "Science 101", Status = "Passed", StartDate = new DateTime(2024, 10, 1), EndDate = new DateTime(2024, 10, 31) },
-                new Course { TermID = Term1ID, Title = "Art 101", Status = "Passed", StartDate = new DateTime(2024, 5, 1), EndDate = new DateTime(2024, 6, 30) },
-                new Course { TermID = Term1ID, Title = "Computer Science 101", Status = "Not Passed", StartDate = new DateTime(2024, 7, 1), EndDate = new DateTime(2024, 8, 31) }
-                });
-
-            // Courses for Term 2
-            courses.AddRange(new List<Course>
+            // Create one course with provided instructor information
+            var course = new Course
             {
-                new Course { TermID = Term2ID, Title = "Math 201", Status = "Passed", StartDate = new DateTime(2024, 11, 1), EndDate = new DateTime(2024, 11, 30) },
-                new Course { TermID = Term2ID, Title = "English 201", Status = "Passed", StartDate = new DateTime(2024, 12, 1), EndDate = new DateTime(2024, 12, 31) },
-                new Course { TermID = Term2ID, Title = "History 201", Status = "Started", StartDate = new DateTime(2025, 1, 1), EndDate = new DateTime(2025, 1, 31) },
-                new Course { TermID = Term2ID, Title = "Science 201", Status = "Enrolled", StartDate = new DateTime(2025, 2, 1), EndDate = new DateTime(2025, 2, 28) },
-                new Course { TermID = Term2ID, Title = "Art 201", Status = "Enrolled", StartDate = new DateTime(2025, 3, 1), EndDate = new DateTime(2025, 3, 31) },
-                new Course { TermID = Term2ID, Title = "Computer Science 101", Status = "Enrolled", StartDate = new DateTime(2025, 4, 1), EndDate = new DateTime(2025, 4, 30) }
-            });
+                TermID = term.ID,
+                Title = "Mobile Programming",
+                Status = "Started",
+                StartDate = DateTime.Now.AddDays(1),
+                EndDate = new DateTime(2025, 6, 30),
+                InstructorName = "Anika Patel",
+                InstructorPhone = "555-123-4567",
+                InstructorEmail = "anika.patel@strimeuniversity.edu"
+            };
+            await _database.InsertAsync(course);
 
-            // Insert courses into the database
-            foreach (var course in courses)
+            // Create two assessments for the course
+            var assessments = new List<Assessment>
             {
-                await _database.InsertAsync(course);
+                new Assessment
+                {
+                    CourseID = course.ID,
+                    Type = "Performance",
+                    Title = "Final Project",
+                    StartDate = DateTime.Now.AddDays(1),
+                    EndDate = new DateTime(2025, 5, 31),
+                    StartDateNotificationEnabled = false,
+                    EndDateNotificationEnabled = false
+                },
+                new Assessment
+                {
+                    CourseID = course.ID,
+                    Type = "Objective",
+                    Title = "Midterm Exam",
+                    StartDate = DateTime.Now.AddDays(5),
+                    EndDate = DateTime.Now.AddDays(5),
+                    StartDateNotificationEnabled = false,
+                    EndDateNotificationEnabled = false
+                }
+            };
+
+            foreach (var assessment in assessments)
+            {
+                await _database.InsertAsync(assessment);
             }
 
         }
